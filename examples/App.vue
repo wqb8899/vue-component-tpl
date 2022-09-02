@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <sf-row></sf-row>
     <sf-col></sf-col>
   </div>
