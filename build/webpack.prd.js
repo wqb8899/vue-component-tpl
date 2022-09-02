@@ -1,9 +1,10 @@
 const glob = require('glob')
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const WebpackBar = require('webpackbar')
+
 const components = {}
 const resolve = dir => path.join(__dirname, '../', dir)
-const WebpackBar = require('webpackbar')
 
 async function getComponents (dirPath, components) {
   const files = glob.sync(`${dirPath}/**/index.js`) // 获取所有组件文件路径
@@ -15,6 +16,7 @@ async function getComponents (dirPath, components) {
 getComponents('packages', components)
 module.exports = {
   mode: "production", // production | development
+  stats: 'errors-only',
   entry: components,
   output: {
     filename: '[name].js',
